@@ -1,0 +1,41 @@
+@page
+@model Assignment1.Pages.Projects.TeamDetailsModel
+
+@{
+    ViewData["Title"] = "Team Details";
+}
+
+<h1>Team Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Team.teamName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Team.teamName)
+        </dd>
+        @foreach(var m in Model.Team.Members)
+        {
+            <dt class="col-sm-2">
+                Member
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => m.Name)
+            </dd>
+        }
+        @foreach(var p in Model.Team.Projects)
+        {
+            <dt class="col-sm-2">
+                Project
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => p.Name)
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="./Teams">Back to Teams</a>
+</div>

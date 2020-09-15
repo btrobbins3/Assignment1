@@ -1,0 +1,36 @@
+@page
+@model Assignment1.Pages.Projects.MemberDetailsModel
+
+@{
+    ViewData["Title"] = "Member Details";
+}
+
+<h1>Member Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Member.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Member.email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./EditMember" asp-route-id="@Model.Member.MemberId">Edit Member</a> |
+    <a asp-page="./Members">Back to Members</a>
+</div>

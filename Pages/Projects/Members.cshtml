@@ -1,0 +1,54 @@
+@page
+@model Assignment1.Pages.Projects.MembersModel
+
+@{
+    ViewData["Title"] = "Members";
+}
+
+<h1>Members</h1>
+
+<p>
+    <a asp-page="CreateMember">Member Sign Up</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member[0].Team)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Member) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Team.teamName)
+            </td>
+            <td>
+                <a asp-page="./EditMember" asp-route-id="@item.MemberId">Edit</a> |
+                <a asp-page="./MemberDetails" asp-route-id="@item.MemberId">Details</a> |
+                <a asp-page="./DeleteMember" asp-route-id="@item.MemberId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

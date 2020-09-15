@@ -1,0 +1,34 @@
+@page
+@model Assignment1.Pages.Projects.TeamsModel
+
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<h1>Teams</h1>
+
+<p>
+    <a asp-page="CreateTeam">New Team</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Team[0].teamName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Team) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.teamName)
+            </td>
+            <td>
+                <a asp-page="./TeamDetails" asp-route-id="@item.TeamId">Details</a> |
+                <a asp-page="./DeleteTeam" asp-route-id="@item.TeamId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
